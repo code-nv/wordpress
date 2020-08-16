@@ -1,12 +1,12 @@
 import "../css/style.css"
 
 // Our modules / classes
-import MobileMenu from "./modules/MobileMenu"
-import HeroSlider from "./modules/HeroSlider"
-import GoogleMap from "./modules/GoogleMap"
-import Search from "./modules/Search"
-import MyNotes from "./modules/MyNotes"
-import Like from "./modules/like"
+import MobileMenu from "./modules/MobileMenu.js"
+import HeroSlider from "./modules/HeroSlider.js"
+import GoogleMap from "./modules/GoogleMap.js"
+import Search from "./modules/Search.js"
+import MyNotes from "./modules/MyNotes.js"
+import Like from "./modules/Like.js"
 
 
 // Instantiate a new object using our modules/classes
@@ -16,6 +16,8 @@ const googleMap = new GoogleMap()
 const search = new Search()
 const myNotes = new MyNotes()
 const like = new Like()
+
+console.log('js is running')
 
 // Allow new JS and CSS to load in browser without a traditional page GoogleMap(sh
 if (module.hot) {
