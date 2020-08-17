@@ -1,7 +1,7 @@
 <?php
 get_header();
 page_banner(array(
-    'title'=> str_replace('Category: ','',get_the_archive_title()),
+    'title'=> str_replace('Author:', 'Articles By', str_replace('Category: ','',get_the_archive_title())),
     'subtitle'=> ' ',
 ));
 ?>
