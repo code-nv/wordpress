@@ -16,7 +16,7 @@ while (have_posts()) {
 $related_programs = get_field('related_programs');
     if ($related_programs) {
         echo '<hr class="section-break">';
-        echo '<h2 class="headline headline--medium"> Related Program(s)</h2>';
+        echo '<h2 class="headline headline--medium"> Related Language(s)</h2>';
         echo '<ul class="link-list min-list">';
         foreach ($related_programs as $program) { ?>
 <li><a href="<?php echo get_the_permalink($program)?>"><?php echo get_the_title($program);?></a></li>

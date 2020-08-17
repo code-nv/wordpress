@@ -14,16 +14,16 @@ function university_register_search()
 function university_search_results($data)
 {
     $main_query = new WP_Query(array(
-    'post_type'=>array('post','page','professor','program','event','campuses'),
+    'post_type'=>array('post','page','project','program','event','locations'),
     's' => sanitize_text_field($data['term'])
 ));
 
     $results = array(
         'general_info' => array(),
-        'professors' => array(),
+        'projects' => array(),
         'programs' => array(),
         'events' => array(),
-        'campuses' => array()
+        'locations' => array()
     );
 
     while ($main_query->have_posts()) {
@@ -39,23 +39,23 @@ function university_search_results($data)
             )
             );
         }
-        if (get_post_type()=='professor') {
+        if (get_post_type()=='project') {
             array_push(
-                $results['professors'],
+                $results['projects'],
                 array(
             'title' => get_the_title(),
             'permalink' => get_permalink(),
-            'image'=> get_the_post_thumbnail_url(0, 'professor_landscape'),
+            'image'=> get_the_post_thumbnail_url(0, 'project_landscape'),
             )
             );
         }
         if (get_post_type()=='program') {
-            $related_campuses = get_field('related_campuses');
-            if($related_campuses){
-                foreach($related_campuses as $campus){
-array_push($results['campuses'], array(
-    'title'=> get_the_title($campus),
-    'permalink'=> get_the_permalink($campus),
+            $related_locations = get_field('related_locations');
+            if($related_locations){
+                foreach($related_locations as $location){
+array_push($results['locations'], array(
+    'title'=> get_the_title($location),
+    'permalink'=> get_the_permalink($location),
 ));
                 }
             }
@@ -68,9 +68,9 @@ array_push($results['campuses'], array(
             )
             );
         }
-        if (get_post_type()=='campuses') {
+        if (get_post_type()=='locations') {
             array_push(
-                $results['campuses'],
+                $results['locations'],
                 array(
             'title' => get_the_title(),
             'permalink' => get_permalink(),
@@ -111,19 +111,19 @@ array_push($results['campuses'], array(
         }
 
         $program_relationship_query = new WP_Query(array(
-    'post_type'=>array('professor','event'),
+    'post_type'=>array('project','event'),
     'meta_query'=>array($programs_meta_query)
 ));
         while ($program_relationship_query->have_posts()) {
             $program_relationship_query->the_post();
 
-            if (get_post_type()=='professor') {
+            if (get_post_type()=='project') {
                 array_push(
-                    $results['professors'],
+                    $results['projects'],
                     array(
         'title' => get_the_title(),
         'permalink' => get_permalink(),
-        'image'=> get_the_post_thumbnail_url(0, 'professor_landscape'),
+        'image'=> get_the_post_thumbnail_url(0, 'project_landscape'),
         )
                 );
             }
@@ -149,9 +149,9 @@ array_push($results['campuses'], array(
             }
         }
         // eliminate duplicate results and prevent the array unique function from adding number indexes.
-        $results['professors'] = array_values(array_unique($results['professors'], SORT_REGULAR));
+        $results['projects'] = array_values(array_unique($results['projects'], SORT_REGULAR));
         $results['events'] = array_values(array_unique($results['events'], SORT_REGULAR));
-        $results['campuses'] = array_values(array_unique($results['campuses'], SORT_REGULAR));
+        $results['locations'] = array_values(array_unique($results['locations'], SORT_REGULAR));
     }
     return $results;
 }

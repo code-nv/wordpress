@@ -80,27 +80,27 @@ class Search {
                 ${results.general_info.length ? "</ul>" : ""}
             </div>
             <div class="one-third">
-                <h2 class="search-overlay__section-title">Programs</h2>
-                ${results.programs.length ? '<ul class="link-list min-list">' : `<p>No programs match that search. <a href="${university_data.root_url}/programs">View all programs</a></p>`}
+                <h2 class="search-overlay__section-title">Languages</h2>
+                ${results.programs.length ? '<ul class="link-list min-list">' : `<p>No languages match that search. <a href="${university_data.root_url}/languages">View all languages.</a></p>`}
                 ${results.programs.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join("")}
                 ${results.programs.length ? "</ul>" : ""}
     
-                <h2 class="search-overlay__section-title">Professors</h2>
-                ${results.professors.length ? '<ul class="professor-cards">' : "<p>No professors matches that search.</p>"}
-                ${results.professors.map(item => ` <li class="professor-card__list-item">
-                <a class="professor-card" href="${item.permalink }">
-                <img class="professor-card__image" src="${item.image}" alt="">
-                <span class="professor-card__name"> ${ item.title}</span>
+                <h2 class="search-overlay__section-title">Projects</h2>
+                ${results.projects.length ? '<ul class="project-cards">' : "<p>No projects matches that search.</p>"}
+                ${results.projects.map(item => ` <li class="project-card__list-item">
+                <a class="project-card" href="${item.permalink }">
+                <img class="project-card__image" src="${item.image}" alt="">
+                <span class="project-card__name"> ${ item.title}</span>
             </a>
         </li>`).join("")}
-                ${results.professors.length ? "</ul>" : ""}
+                ${results.projects.length ? "</ul>" : ""}
     
             </div>
             <div class="one-third">
-                <h2 class="search-overlay__section-title">Campuses</h2>
-                ${results.campuses.length ? '<ul class="link-list min-list">' : `<p>No campuses match that search. <a href="${university_data.root_url}/campuses">View all campuses</a></p>`}
-                ${results.campuses.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join("")}
-                ${results.campuses.length ? "</ul>" : ""}
+                <h2 class="search-overlay__section-title">Locations</h2>
+                ${results.locations.length ? '<ul class="link-list min-list">' : `<p>No locations match that search. <a href="${university_data.root_url}/locations">View all locations</a></p>`}
+                ${results.locations.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join("")}
+                ${results.locations.length ? "</ul>" : ""}
     
                 <h2 class="search-overlay__section-title">Events</h2>
                 ${results.events.length ? '' : `<p>No events match that search. <a href="${university_data.root_url}/events">View all events</a></p>`}

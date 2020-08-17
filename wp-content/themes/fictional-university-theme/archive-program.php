@@ -1,8 +1,8 @@
 <?php
 get_header();
 page_banner(array(
-    'title'=>'All Programs',
-    'subtitle'=>"We don't have much, but it's something!",
+    'title'=>'All Coding Languages',
+    'subtitle'=>"Adding every day",
 ));
 ?>
 

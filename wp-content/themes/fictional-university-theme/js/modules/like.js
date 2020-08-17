@@ -25,7 +25,7 @@ class Like {
 			url: university_data.root_url + "/wp-json/university/v1/manage_like",
 			type: "POST",
 			data: {
-				professorID: currentLikeBox.data("professor"),
+				projectID: currentLikeBox.data("project"),
 			},
 			success: (response) => {
 				currentLikeBox.attr("data-exists", "yes");

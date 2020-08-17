@@ -1,8 +1,8 @@
 <?php
 get_header();
 page_banner(array(
-    'title'=> get_the_archive_title(),
-    'subtitle'=> get_the_archive_description()
+    'title'=> str_replace('Category: ','',get_the_archive_title()),
+    'subtitle'=> ' ',
 ));
 ?>
 

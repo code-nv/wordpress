@@ -1,7 +1,6 @@
 <?php
 
 get_header();
-
 // welcome to the loop <3
 while (have_posts()) {
     // like an iteration variable, this tells us where to get info for this post

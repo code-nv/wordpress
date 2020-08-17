@@ -5,16 +5,16 @@ while (have_posts()) {
     the_post(); ?>
 <div class="container container--narrow page-section">
     <div class="metabox metabox--position-up metabox--with-home-link">
-        <p><a class="metabox__blog-home-link" href="<?php echo get_post_type_archive_link('program')?>"><i class="fa fa-home" aria-hidden="true"></i>All Programs</a> <span class="metabox__main"><?php the_title()?></span></p>
+        <p><a class="metabox__blog-home-link" href="<?php echo get_post_type_archive_link('program')?>"><i class="fa fa-home" aria-hidden="true"></i>All Languages</a> <span class="metabox__main"><?php the_title()?></span></p>
     </div>
 
 <div class="generic-content">
     <?php the_field('main_body_content');
 
-    // related professors
-    $related_professors = new WP_Query(array(
+    // related projects
+    $related_projects = new WP_Query(array(
         'posts_per_page' => -1,
-        'post_type' => 'professor',
+        'post_type' => 'project',
         'orderby'=>'title',
         'order'=>'ASC',
         'meta_query'=> array(
@@ -28,16 +28,15 @@ while (have_posts()) {
 
     ));
     // only display if there are upcoming events
-    if ($related_professors->have_posts()) {
-        echo '<hr class="section-break">';
-        echo '<h2 class="headline headline--medium">'.get_the_title().' Professors</h2>';
-        echo '<ul class="professor-cards">';
-        while ($related_professors->have_posts()) {
-            $related_professors->the_post(); ?>
-    <li class="professor-card__list-item">
-        <a class="professor-card" href="<?php the_permalink(); ?>">
-        <img class="professor-card__image" src="<?php the_post_thumbnail_url('professor_landscape')?>" alt="">
-        <span class="professor-card__name"> <?php the_title()?></span>
+    if ($related_projects->have_posts()) {
+        echo '<h3 class="headline headline--medium">View my '.get_the_title().' projects</h3>';
+        echo '<ul class="project-cards">';
+        while ($related_projects->have_posts()) {
+            $related_projects->the_post(); ?>
+    <li class="project-card__list-item">
+        <a class="project-card" href="<?php the_permalink(); ?>">
+        <img class="project-card__image" src="<?php the_post_thumbnail_url('project_landscape')?>" alt="">
+        <span class="project-card__name"> <?php the_title()?></span>
     </a>
 </li>
         <?php
@@ -74,27 +73,25 @@ while (have_posts()) {
     // only display if there are upcoming events
     if ($homepage_events->have_posts()) {
         echo '<hr class="section-break">';
-        echo '<h2 class="headline headline--medium">Upcoming '.get_the_title().' Events</h2>';
+        echo '<h3 class="headline headline--medium">Upcoming '.get_the_title().' Events</h3>';
         while ($homepage_events->have_posts()) {
             $homepage_events->the_post();
-            get_template_part('template-parts/content','event');
+            get_template_part('template-parts/content', 'event');
         }
     }
-    // clean slate then grab related campuses to show relationship on front end
+    // clean slate then grab related locations to show relationship on front end
     wp_reset_postdata();
-    $related_campuses = get_field('related_campuses');
-if ($related_campuses){
-    echo '<hr class="section-break">';
-echo '<h2 class="headline headline--medium">'.get_the_title().' is available at these campuses</h2>';
-echo '<ul class="min-list link-list">';
-foreach($related_campuses as $campus){
-    ?> <li><a href="<?php echo get_the_permalink($campus)?>"><?php echo get_the_title($campus)?></a></li>
+    $related_locations = get_field('related_locations');
+    if ($related_locations) {
+        echo '<hr class="section-break">';
+        echo '<h3 class="headline headline--medium">'.get_the_title().' was learned here!</h3>';
+        echo '<ul class="min-list link-list">';
+        foreach ($related_locations as $location) {
+            ?> <li><a href="<?php echo get_the_permalink($location)?>"><?php echo get_the_title($location)?></a></li>
     <?php
-}
-echo '</ul>';
-}
-    
-    ?>
+        }
+        echo '</ul>';
+    } ?>
 
 </div>
 </div>

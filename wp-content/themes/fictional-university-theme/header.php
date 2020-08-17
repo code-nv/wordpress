@@ -10,7 +10,7 @@
 <header class="site-header">
     <div class="container">
     <h1 class="school-logo-text float-left">
-        <a href="<?php echo site_url('')?>"><strong>Fictional</strong> University</a>
+        <a href="<?php echo site_url('')?>"><strong>Nick</strong> Reyno</a>
     </h1>
     <a href="<?php echo esc_url(site_url('/search'))?>" class="js-search-trigger site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></a>
     <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
@@ -24,25 +24,25 @@
 ?>
 
 <!-- conditional class for fine tuned control over active page styling behaviour -->
-            <li <?php if (is_page('about-us')or wp_get_post_parent_id(0) == 13) {
+            <li <?php if (is_page('about-me')or wp_get_post_parent_id(0) == 13) {
     echo 'class="current-menu-item"';
 }?>>
-                <a href="<?php echo site_url('/about-us')?>">About Us</a>
+                <a href="<?php echo site_url('/about-me')?>">About Me</a>
             </li>
-            <li <?php if (get_post_type() == 'program') {
+            <li <?php if (get_post_type() == 'project') {
     echo 'class="current-menu-item"';
 }?>>
-                <a href="<?php echo get_post_type_archive_link('program')?>">Programs</a>
+                <a href="<?php echo get_post_type_archive_link('project')?>">Projects</a>
             </li>
             <li <?php if (get_post_type() == 'event' or is_page('past-events')) {
     echo 'class="current-menu-item"';
 }?>>
                 <a href="<?php echo get_post_type_archive_link('event')?>">Events</a>
             </li>
-            <li <?php if (get_post_type() == 'campus') {
+            <li <?php if (get_post_type() == 'location') {
     echo 'class="current-menu-item"';
 }?>>
-                <a href="<?php echo get_post_type_archive_link('campus')?>">Campuses</a>
+                <a href="<?php echo get_post_type_archive_link('location')?>">Locations</a>
             </li>
             <li <?php if (get_post_type() == 'post' or wp_get_post_parent_id(0) == 13) {
     echo 'class="current-menu-item"';

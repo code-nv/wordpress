@@ -3,7 +3,7 @@
     <div class="generic-content">
         <?php the_excerpt()?>
         <p>
-            <a class="btn btn--blue" href="<?php the_permalink()?>">View program &raquo;</a>
+            <a class="btn btn--blue" href="<?php the_permalink()?>">View Skill &raquo;</a>
         </p>
     </div>
 </div>

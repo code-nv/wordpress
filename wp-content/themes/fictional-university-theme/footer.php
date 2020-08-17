@@ -3,9 +3,9 @@
         <div class="group">
         <div class="site-footer__col-one">
             <h1 class="school-logo-text school-logo-text--alt-color">
-            <a href="<?php site_url('')?>"><strong>Fictional</strong> University</a>
+            <a href="<?php site_url('')?>"><strong>Nick</strong> Reyno</a>
             </h1>
-            <p><a class="site-footer__link" href="#">555.555.5555</a></p>
+            <p><a target="_blank" rel="noopener" class="site-footer__link" href="https://nickreyno.com">www.nickreyno.com</a></p>
         </div>
 
         <div class="site-footer__col-two-three-group">
@@ -36,23 +36,23 @@
         </div>
 
         <div class="site-footer__col-four">
-            <h3 class="headline headline--small">Connect With Us</h3>
+            <h3 class="headline headline--small">Connect With Me</h3>
             <nav>
             <ul class="min-list social-icons-list group">
                 <li>
-                <a href="#" class="social-color-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a target="_blank" rel="noopener" href="https://github.com/nickreyno" class="social-color-github"><i class="fa fa-github" aria-hidden="true"></i></a>
                 </li>
                 <li>
-                <a href="#" class="social-color-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/nickreyno/" class="social-color-linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                 </li>
                 <li>
-                <a href="#" class="social-color-youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                    <a target="_blank" rel="noopener" href="https://twitter.com/nickreyno" class="social-color-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                 </li>
                 <li>
-                <a href="#" class="social-color-linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <a target="_blank" rel="noopener" href="https://www.instagram.com/nickrenoe/" class="social-color-instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 </li>
                 <li>
-                <a href="#" class="social-color-instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a target="_blank" rel="noopener" href="https://open.spotify.com/user/12159702639" class="social-color-github"><i class="fa fa-spotify" aria-hidden="true"></i></a>
                 </li>
             </ul>
             </nav>

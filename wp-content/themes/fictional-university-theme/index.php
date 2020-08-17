@@ -1,8 +1,9 @@
 <?php
 get_header();
 page_banner(array(
-    'title'=>'Welcome to our blog!',
-    'subtitle'=>'Keep up with our latest news'
+    'title'=>'Welcome to my blog',
+    'subtitle'=>'These are some articles I wrote for the paper!',
+    'photo' => get_theme_file_uri('/images/newspapers.jpg')
 ));
 ?>
 

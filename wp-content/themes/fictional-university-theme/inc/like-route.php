@@ -19,31 +19,31 @@ function university_like_routes()
 function create_like($data)
 {
     if (is_user_logged_in()) {
-        $professor = sanitize_text_field($data['professorID']);
+        $project = sanitize_text_field($data['projectID']);
         $existQuery = new WP_Query(array(
             'author' => get_current_user_id(),
             'post_type' => 'like',
             'meta_query' => array(array(
-                'key' => 'liked_professor_id',
+                'key' => 'liked_project_id',
                 'compare' => '=',
-                'value' => $professor
+                'value' => $project
             ))
             ));
 
-        if ($existQuery->found_posts == 0 and get_post_type($professor) == 'professor') {
+        if ($existQuery->found_posts == 0 and get_post_type($project) == 'project') {
             return wp_insert_post(array(
                 'post_type'=>'like',
                 'post_status'=> 'publish',
                 'post_title'=> 'like',
                 'meta_input' => array(
-                    'liked_professor_id'=> $professor
+                    'liked_project_id'=> $project
                 )
             ));
         } else {
-            die("invalid professor id");
+            die("invalid project id");
         }
     } else {
-        die('only logged in users can like professors');
+        die('only logged in users can like projects');
     }
 }
 

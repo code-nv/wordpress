@@ -1,9 +1,9 @@
 <?php
 function university_post_types()
 {
-    // Campus Post Type
-    register_post_type('campus', array(
-        'capability_type'=> 'campus',
+    // Location Post Type
+    register_post_type('location', array(
+        'capability_type'=> 'location',
         'map_meta_cap'=>true,
         'public' => true,
         'show_in_rest'=>true,
@@ -11,13 +11,13 @@ function university_post_types()
             'title','editor','excerpt',
         )),
         'has_archive' => true,
-        'rewrite' => array('slug'=>'campuses'),
+        'rewrite' => array('slug'=>'locations'),
         'labels'=> array(
-            'name'=>'Campuses',
-            'add_new_item'=>'Add New Campus',
-            'edit_item'=>'Edit Campus',
-            'all_items'=>'All Campuses',
-            'singular_name'=>'Campus'
+            'name'=>'Locations',
+            'add_new_item'=>'Add New Location',
+            'edit_item'=>'Edit Location',
+            'all_items'=>'All Locations',
+            'singular_name'=>'Location'
         ),
         'menu_icon'=> 'dashicons-location-alt',
     ));
@@ -51,30 +51,32 @@ function university_post_types()
             'title',
         )),
         'has_archive' => true,
-        'rewrite' => array('slug'=>'programs'),
+        'rewrite' => array('slug'=>'languages'),
         'labels'=> array(
-            'name'=>'Programs',
-            'add_new_item'=>'Add New Program',
-            'edit_item'=>'Edit Program',
-            'all_items'=>'All Programs',
-            'singular_name'=>'Program'
+            'name'=>'Languages',
+            'add_new_item'=>'Add New Language',
+            'edit_item'=>'Edit Language',
+            'all_items'=>'All Languages',
+            'singular_name'=>'Language'
         ),
         'menu_icon'=> 'dashicons-awards',
     ));
 
-    // creating professor post type
-    register_post_type('professor', array(
+    // creating project post type
+    register_post_type('project', array(
         'public' => true,
         'show_in_rest'=>true,
+        'has_archive'=> true,
+        'rewrite' => array('slug'=>'projects'),
         'supports' =>(array(
             'title','editor', 'thumbnail'
         )),
         'labels'=> array(
-            'name'=>'Professors',
-            'add_new_item'=>'Add New Professor',
-            'edit_item'=>'Edit Professor',
-            'all_items'=>'All Professors',
-            'singular_name'=>'Professor'
+            'name'=>'Projects',
+            'add_new_item'=>'Add New Project',
+            'edit_item'=>'Edit Project',
+            'all_items'=>'All Projects',
+            'singular_name'=>'Project'
         ),
         'menu_icon'=> 'dashicons-welcome-learn-more',
     ));

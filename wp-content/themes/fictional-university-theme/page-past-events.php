@@ -39,6 +39,8 @@ echo paginate_links(array(
     'total'=> $pastEvents->max_num_pages
 ))
 ?>
+<hr class="section-break">
+    <p>Back to <a href="<?php echo site_url('/events')?>">upcoming events.</a></p>
 </div>
     <?php
 get_footer();
