@@ -37,6 +37,7 @@ class Like {
 			},
 			error: (response) => {
 				console.log(response);
+				alert('please log in to like projects');
 			},
 		});
 	}
