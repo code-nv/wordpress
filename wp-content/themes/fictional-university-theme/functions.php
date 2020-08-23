@@ -59,7 +59,7 @@ function university_files()
     wp_enqueue_script('google_map', '//maps.googleapis.com/maps/api/js?key=AIzaSyBwSTYu5ShZR1NA9DV9MAoxUUdlCtowiTM', null, '1.0', true);
 
     // adjust bundled assets for online/offline workspace
-    if (strstr($_SERVER['SERVER_NAME'], 'fictional-university.locall')) {
+    if (strstr($_SERVER['SERVER_NAME'], 'fictional-university.local')) {
         wp_enqueue_script('main_university_js', 'http://localhost:3000/bundled.js', null, '1.0', true);
     } else {
         wp_enqueue_script('our_venders_js', get_theme_file_uri('/bundled-assets/vendors~scripts.9678b4003190d41dd438.js'), null, '1.0', true);
@@ -76,6 +76,7 @@ function university_files()
 }
 add_action('wp_enqueue_scripts', 'university_files');
 
+// these nav locations were fun to set up, the image sizes are for a cropping plugin
 function university_features()
 {
     register_nav_menu('footer_menu_location_one', 'Footer Location One');
@@ -91,7 +92,7 @@ add_action('after_setup_theme', 'university_features');
 
 function university_adjust_queries($query)
 {
-    // will prevent from adjusting admin side, will only affect even archive, and has safety check to make sure it's not adjusting other custom queries
+    // will prevent from adjusting admin side, will only affect specific front end archives, and has safety check to make sure it's not adjusting other custom queries
     if (!is_admin() and is_post_type_archive('program') and $query->is_main_query()) {
         $query->set('orderby', 'title');
         $query->set('order', 'ASC');
@@ -123,6 +124,7 @@ function university_adjust_queries($query)
 
 add_action('pre_get_posts', 'university_adjust_queries');
 
+// supplying api key for google maps
 function university_map_key($api)
 {
     $api['key'] = 'AIzaSyBwSTYu5ShZR1NA9DV9MAoxUUdlCtowiTM';
@@ -155,7 +157,6 @@ function hide_admin_bar()
 }
 
 // customize login screen
-
 add_filter('login_headerurl', 'custom_header_url');
 
 function custom_header_url()
@@ -193,9 +194,7 @@ function make_note_private($data, $postarr)
         if (!$data['post_content'] || !$data['post_title']) {
             die("please fill out your note");
         }
-        // this is an additional security measure to strip html
-        // $data['post_content'] = sanitize_textarea_field($data['post-content']);
-        // $data['post_title'] = sanitize_text_field($data['post-title']);
+
     }
     if ($data['post_type'] == 'note' and $data['post_status'] != 'trash') {
         $data['post_status'] = "private";
